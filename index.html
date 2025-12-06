@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorshipSoulGPT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsivo.css">
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="logo-group">
+      <img src="assets/images/logosite.png" alt="imagem logo" class="logosite">
+      <a href="index.html" class="logo">
+        WorshipSoul<span>GPT</span>
+      </a>
+    </div>
+
+    <nav class="nav-circles">
+      <button title="Sobre" onclick="window.location.href='sobre.html'" class="circle"><i data-lucide="home"></i></button>
+      <button title="Quiz" onclick="window.location.href='quiz.html'" class="circle"><i data-lucide="puzzle"></i></button>
+      <button title="Bíblia" onclick="window.location.href='biblia.html'" class="circle"><i data-lucide="book-open"></i></button>
+      <button title="Contatos" onclick="window.location.href='contatos.html'" class="circle"><i data-lucide="mail"></i></button>
+    </nav>
+  </header>
+
+  <main class="main-section">
+    
+    <div class="frase-home">
+      <h1><span class="texto">Bem-vindo(a) à WorshipSoulGPT!</span></h1>
+    </div>
+
+    <button class="ia-button" onclick="window.location.href='chat.html'">
+      Entrar para conversar com a I.A.
+    </button>
+
+    <div class="versiculo-box">
+      <div class="versiculo-header">
+        <i data-lucide="sun"></i>
+        <h2>Versículo do Dia</h2>
+      </div>
+
+      <p class="versiculo-texto" id="versiculo"></p>
+      <span class="versiculo-referencia" id="referencia"></span>
+
+<button id="btnCompartilhar" class="btn-compartilhar">
+  <i data-lucide="share"></i> Compartilhar
+</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 WorshipSoulGPT</p>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>

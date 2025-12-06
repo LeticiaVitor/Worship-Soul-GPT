@@ -1,0 +1,401 @@
+body {
+    margin: 0;
+    height: 100vh;
+  background-image: url("/assets/images/background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.iphone {
+    width: calc(100vh * 0.462);
+    height: 99%;
+    border-radius: calc(100vh * 0.049);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vh * 0.259);
+    height: calc(100vh * 0.043);
+    background-color: #000;
+    border-radius: 0 0 calc(100vh * 0.024) calc(100vh * 0.024);
+    z-index: 2;
+}
+
+.front-camera {
+    position: absolute;
+    top: calc(100vh * 0.012);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vh * 0.012);
+    height: calc(100vh * 0.012);
+    background-color: #333;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.screen {
+    position: absolute;
+    top: calc(100vh * 0.043);
+    left: calc(100vh * 0.012);
+    right: calc(100vh * 0.012);
+    bottom: calc(100vh * 0.012);
+    background-color: transparent;
+    border-radius: calc(100vh * 0.037);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.screen-content {
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right top, #0000cd, #4626d1, #6540d4, #7e58d8, #9370db);
+    overflow: hidden;
+    position: relative;
+}
+
+.tab-bar {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 100px;
+    backdrop-filter: blur(10px);
+}
+
+.chat-area {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    user-select: none;
+}
+
+.chat-area h1 {
+    color: #4a148c;
+    margin-bottom: 25px;
+}
+
+/* From Uiverse.io by Pankaj-Meharchandani */ 
+.ai-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(120deg, #0a0a23, #1a0033);
+    border-radius: 100px;
+    padding: 6px;
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.8),
+        inset 0 0 15px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    max-width: none;
+    margin: 0 auto;
+    transition: all 0.4s ease-out;
+    width: 300px;
+    height: auto;
+    margin-top: 0;
+}
+
+.ai-input-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.1),
+        transparent 70%
+    ),
+    radial-gradient(circle at 70% 70%, rgba(150, 0, 255, 0.15), transparent 60%);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ai-input-container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(
+        circle at 10% 10%,
+        rgba(255, 255, 255, 0.8),
+        transparent 1px
+    ),
+    radial-gradient(
+        circle at 30% 40%,
+        rgba(255, 255, 255, 0.6),
+        transparent 2px
+    ),
+    radial-gradient(
+        circle at 70% 20%,
+        rgba(255, 255, 255, 0.7),
+        transparent 3px
+    ),
+    radial-gradient(
+        circle at 50% 80%,
+        rgba(255, 255, 255, 0.9),
+        transparent 4px
+    );
+    background-size: 100% 100%;
+    animation: star-streak 5s linear infinite;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes star-streak {
+    0% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%);
+    }
+}
+
+.ai-input-container:hover {
+    transform: scale(1.03) translateY(-3px);
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #2a2a5a, #3a1e7a);
+}
+
+.ai-input-container:hover::before {
+    opacity: 1;
+}
+
+.ai-input-container:focus-within::after {
+    animation: star-streak 3s linear infinite;
+}
+
+.ai-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 14px 25px;
+    color: #f0f0f5;
+    font-size: 17px;
+    font-family: "Arial", sans-serif;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-input::placeholder {
+    color: #99ccff;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+}
+
+.ai-input:focus::placeholder {
+    opacity: 0.3;
+    transform: translateX(10px);
+}
+
+.ai-input:focus {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.ai-submit-btn {
+    width: 33px;
+    height: 33px;
+    background: linear-gradient(135deg, #00c4ff, #7b00ff);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.4s ease;
+    box-shadow: 0 3px 15px rgba(123, 0, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ai-submit-btn::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+}
+
+.ai-submit-btn:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+.ai-submit-btn:hover {
+    transform: scale(1.15) rotate(10deg);
+    background: linear-gradient(135deg, #00e4ff, #9b00ff);
+    box-shadow: 0 5px 20px rgba(123, 0, 255, 0.6);
+}
+
+.ai-submit-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(123, 0, 255, 0.3);
+}
+
+.send-icon {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.4s ease;
+}
+
+.ai-submit-btn:hover .send-icon {
+    transform: translateX(3px) scale(1.1);
+    stroke: #fff0f5;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(123, 0, 255, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(123, 0, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(123, 0, 255, 0);
+    }
+}
+
+.ai-submit-btn:focus {
+    animation: pulse 1.5s infinite;
+}
+
+.chat-container {
+    width: 20%;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: 78vh;
+}
+
+.chat-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* input usuario */
+.msg-user {
+    align-self: flex-end;
+    background: #6E52D9;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 18px 18px 4px 18px;
+    max-width: 75%;
+    font-size: 0.97rem;
+    line-height: 1.35;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.msg-ai {
+    align-self: flex-start;
+    background: #ffffff;
+    color: #111;
+    padding: 10px 14px;
+    border-radius: 18px 18px 18px 4px;
+    max-width: 75%;
+    font-size: 0.97rem;
+    line-height: 1.35;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.10);
+}
+
+.typing {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #6e52d9;
+    border-top-color: transparent;
+    animation: spin 0.7s linear infinite;
+    align-self: flex-start;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ola-usuario {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    opacity: 1;
+    transition: all 0.6s ease;
+    z-index: 100;
+}
+
+.ola-usuario.sumindo {
+    top: 40%;
+    transform: translate(-50%, -60%);
+    opacity: 0;
+}

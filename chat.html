@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorshipSoulGPT - Chat</title>
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+
+    <div class="iphone">
+        <div class="notch"></div>
+        
+        <div class="screen"></div>
+          <div class="screen-content"></div>
+        
+        <div class="front-camera"></div>
+
+        <div class="tab-bar"></div>
+    </div>
+
+<body transition-style="in:wipe:right">
+
+<main class="chat-area">
+  <h1 class="ola-usuario" id="olaUsuario">Olá!</h1>
+
+  <div id="chat-container" class="chat-container"></div>
+
+  <div class="ai-input-container">
+    <input
+      type="text"
+      id="msg"
+      class="ai-input"
+      placeholder="Digite aqui..."
+    />
+
+    <button class="ai-submit-btn" id="send">
+      <svg viewBox="0 0 24 24" class="send-icon">
+        <path d="M2 21l21-9L2 3v7l15 2-15 2v7z" />
+      </svg>
+    </button>
+  </div>
+  <script src="js/chat.js"></script>
+</body>
+</html>
