@@ -2,7 +2,7 @@ const chatContainer = document.getElementById("chat-container");
 const input = document.getElementById("msg");
 const btnSend = document.getElementById("send");
 
-/* usuario */
+  //usuario
 function addUserMessage(text) {
   const div = document.createElement("div");
   div.classList.add("msg-user");
@@ -11,7 +11,7 @@ function addUserMessage(text) {
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-/* conversa da IA*/
+//ia
 function addAIMessage(text) {
   const div = document.createElement("div");
   div.classList.add("msg-ai");
@@ -45,6 +45,13 @@ btnSend.addEventListener("click", () => {
   addUserMessage(msg);
   input.value = "";
 
+  input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    btnSend.click();
+  }
+});
+
   // pensando
   const typing = addTypingIndicator();
 
@@ -55,18 +62,15 @@ btnSend.addEventListener("click", () => {
   }, 1000);
 });
 
-function mostrarOla() {
-  const ola = document.createElement("div");
-  ola.classList.add("ola-usuario");
-  ola.textContent = "Olá!";
+const sendBtn = document.getElementById("send");
+const ola = document.getElementById("olaUsuario");
 
-  document.body.appendChild(ola);
+sendBtn.addEventListener("click", () => {
+    if (!ola) return;
 
-  setTimeout(() => {
     ola.classList.add("sumindo");
-  }, 100);
 
-  setTimeout(() => {
-    ola.remove();
-  }, 800);
-}
+    setTimeout(() => {
+        ola.remove();
+    }, 600);
+});
