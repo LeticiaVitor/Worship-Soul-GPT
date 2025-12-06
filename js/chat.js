@@ -54,3 +54,19 @@ btnSend.addEventListener("click", () => {
     addAIMessage("Olá! Sou a IA biblica");
   }, 1000);
 });
+
+function mostrarOla() {
+  const ola = document.createElement("div");
+  ola.classList.add("ola-usuario");
+  ola.textContent = "Olá!";
+
+  document.body.appendChild(ola);
+
+  setTimeout(() => {
+    ola.classList.add("sumindo");
+  }, 100);
+
+  setTimeout(() => {
+    ola.remove();
+  }, 800);
+}
