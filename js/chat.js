@@ -38,7 +38,7 @@ function addTypingIndicator() {
   return dot;
 }
 
-btnSend.addEventListener("click", () => {
+btnSend.addEventListener("click", async () => {
   const msg = input.value.trim();
   if (msg === "") return;
 
@@ -46,19 +46,26 @@ btnSend.addEventListener("click", () => {
   input.value = "";
 
   input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    btnSend.click();
-  }
-});
+    if (e.key === "Enter") {
+      e.preventDefault();
+      btnSend.click();
+    }
+  });
 
   // pensando
   const typing = addTypingIndicator();
 
 
-  setTimeout(() => {
-    typing.remove();
-    addAIMessage("Olá! Sou a IA biblica");
+  setTimeout(async () => {
+    try {
+      const answer = await sendMessage(msg);
+      typing.remove();
+      addAIMessage(answer);
+    } catch (error) {
+      typing.remove();
+      addAIMessage("Desculpe, houve um erro, tente denovo :)");
+      console.error(error);
+    }
   }, 1000);
 });
 
@@ -74,3 +81,15 @@ sendBtn.addEventListener("click", () => {
         ola.remove();
     }, 600);
 });
+
+
+async function sendMessage(texto) {
+  const response = await fetch('http://localhost:8001/perguntar', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({question_text: texto}),
+  });
+
+  const data = await response.json();
+  return data.ai_answer;
+}
